@@ -85,7 +85,7 @@ var StateMain = {
         }
     },
     doJump: function() {
-        this.hero.body.velocity.y = -this.power * 12;
+        this.hero.body.velocity.y = -200;
     },
     makeBlocks: function() {
         this.blocks.removeAll();
