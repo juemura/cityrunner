@@ -49,6 +49,8 @@ var StateMain = {
         this.blocks = game.add.group();
         this.makeBlocks();
         this.makeBird();
+        spacebar = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+        spacebar.onDown.add(this.moveDown, this);
     },
     makeArray: function(start, end) {
         var myArray = [];
@@ -70,6 +72,15 @@ var StateMain = {
     },
     mouseUp: function() {
         game.input.onUp.remove(this.mouseUp, this);
+        this.doJump();
+        game.time.events.remove(this.timer);
+        this.power = 0;
+        this.powerBar.width = 0;
+        game.input.onDown.add(this.moveDown, this);
+        this.hero.animations.play("jump");
+    },
+    keyboardDown: function() {
+        game.input.onUp.remove(this.keyboardDown, this);
         this.doJump();
         game.time.events.remove(this.timer);
         this.power = 0;
