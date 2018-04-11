@@ -12,6 +12,9 @@ var StateMain = {
     create: function() {
         this.clickLock = false;
         this.power = 0;
+        this.score = 0;
+        this.scoreText = game.add.text(50, 50, "TEST TEXT" + this.score);
+        console.log("Adding", this.scoreText)
         //turn the background sky blue
         game.stage.backgroundColor = "#00ffff";
         //add the ground
@@ -149,6 +152,9 @@ var StateMain = {
         }
     },
     update: function() {
+        this.score += 1;
+        this.scoreText.text = this.score
+        console.log(this.score)
         game.physics.arcade.collide(this.hero, this.ground, this.onGround, null, this);
         //
         //collide the hero with the blocks
