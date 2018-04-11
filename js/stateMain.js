@@ -38,7 +38,7 @@ var StateMain = {
         game.physics.enable(this.hero, Phaser.Physics.ARCADE);
         game.physics.enable(this.ground, Phaser.Physics.ARCADE);
         //game.physics.arcade.gravity.y = 100;
-        this.hero.body.gravity.y = 200;
+        this.hero.body.gravity.y = 450;
         this.hero.body.collideWorldBounds = true;
         //this.hero.body.bounce.set(0, .2);
         this.ground.body.immovable = true;
@@ -50,7 +50,7 @@ var StateMain = {
         this.makeBlocks();
         this.makeBird();
         spacebar = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
-        spacebar.onDown.add(this.moveDown, this);
+        spacebar.onDown.add(this.doJump, this);
     },
     makeArray: function(start, end) {
         var myArray = [];
@@ -96,11 +96,12 @@ var StateMain = {
         }
     },
     doJump: function() {
-        this.hero.body.velocity.y = -200;
-    },
+        console.log(this.hero.y, this.hero.height);
+    if (this.hero.y >= 432) 
+    {this.hero.body.velocity.y = -350;}},
     makeBlocks: function() {
         this.blocks.removeAll();
-        var wallHeight = game.rnd.integerInRange(1, 4);
+        var wallHeight = game.rnd.integerInRange(1, 1);
         for (var i = 0; i < wallHeight; i++) {
             var block = game.add.sprite(0, -i * 50, "block");
             this.blocks.add(block);
