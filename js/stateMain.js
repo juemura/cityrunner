@@ -198,6 +198,7 @@ var StateMain = {
         game.time.events.add(Phaser.Timer.SECOND, this.gameOver, this);
     },
     gameOver: function() {
+        localStorage.setItem("score", this.score);
         game.state.start("StateOver");
     }
 }
