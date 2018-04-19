@@ -4,6 +4,7 @@ var StateMain = {
         // game.load.image("hero", "images/hero.png");
         game.load.image("bar", "images/powerbar.png");
         game.load.image("block", "images/block.png");
+        game.load.image("trashcan", "images/trashcan.png");
         game.load.image("bird", "images/bird.png");
         game.load.image("playAgain", "images/playAgain.png");
         game.load.image("clouds", "images/clouds.png");
@@ -105,8 +106,9 @@ var StateMain = {
     makeBlocks: function() {
         this.blocks.removeAll();
         var wallHeight = game.rnd.integerInRange(1, 1);
+        var trashCanX = game.rnd.integerInRange(0, game.width);
         for (var i = 0; i < wallHeight; i++) {
-            var block = game.add.sprite(0, -i * 50, "block");
+            var block = game.add.sprite(trashCanX, -i * 50, "trashcan");
             this.blocks.add(block);
         }
         this.blocks.x = game.width - this.blocks.width
