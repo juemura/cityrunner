@@ -23,9 +23,9 @@ var StateMain = {
         //add the hero in 
         this.hero = game.add.sprite(game.width * .2, this.ground.y, "hero");
         //make animations
-        this.hero.animations.add("die", this.makeArray(0, 10), 12, false);
-        this.hero.animations.add("jump", this.makeArray(20, 30), 12, false);
-        this.hero.animations.add("run", this.makeArray(30, 40), 12, true);
+//        this.hero.animations.add("die", this.makeArray(0, 10), 12, false);
+//        this.hero.animations.add("jump", this.makeArray(20, 30), 12, false);
+        this.hero.animations.add("run", this.makeArray(0, 6), 12, true);
         this.hero.animations.play("run");
         this.hero.width = game.width / 12;
         this.hero.scale.y = this.hero.scale.x;
@@ -81,7 +81,7 @@ var StateMain = {
         this.power = 0;
         this.powerBar.width = 0;
         game.input.onDown.add(this.moveDown, this);
-        this.hero.animations.play("jump");
+//        this.hero.animations.play("jump");
     },
     keyboardDown: function() {
         game.input.onUp.remove(this.keyboardDown, this);
@@ -90,7 +90,7 @@ var StateMain = {
         this.power = 0;
         this.powerBar.width = 0;
         game.input.onDown.add(this.moveDown, this);
-        this.hero.animations.play("jump");
+//        this.hero.animations.play("jump");
     },
     increasePower: function() {
         this.power++;
@@ -194,7 +194,7 @@ var StateMain = {
     delayOver: function() {
         this.clickLock = true;
         if (this.hero) {
-            this.hero.animations.play("die");
+//            this.hero.animations.play("die");
             this.hero.body.velocity.y = 100;
         }
         game.time.events.add(Phaser.Timer.SECOND, this.gameOver, this);
