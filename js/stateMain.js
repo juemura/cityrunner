@@ -15,7 +15,6 @@ var StateMain = {
         this.power = 0;
         this.score = 0;
         this.scoreText = game.add.text(50, 50, "TEST TEXT" + this.score);
-        console.log("Adding", this.scoreText)
         //turn the background sky blue
         game.stage.backgroundColor = "#00ffff";
         //add the ground
@@ -25,7 +24,7 @@ var StateMain = {
         //make animations
 //        this.hero.animations.add("die", this.makeArray(0, 10), 12, false);
 //        this.hero.animations.add("jump", this.makeArray(20, 30), 12, false);
-        this.hero.animations.add("run", this.makeArray(0, 6), 12, true);
+        this.hero.animations.add("run", this.makeArray(0, 0), 12, true);
         this.hero.animations.play("run");
         this.hero.width = game.width / 12;
         this.hero.scale.y = this.hero.scale.x;
@@ -100,7 +99,6 @@ var StateMain = {
         }
     },
     doJump: function() {
-        console.log(this.hero.y, this.hero.height);
     if (this.hero.y >= 432) 
     {this.hero.body.velocity.y = -350;}},
     makeBlocks: function() {
@@ -156,7 +154,6 @@ var StateMain = {
     update: function() {
         this.score += 1;
         this.scoreText.text = this.score
-        console.log(this.score)
         game.physics.arcade.collide(this.hero, this.ground, this.onGround, null, this);
         //
         //collide the hero with the blocks
