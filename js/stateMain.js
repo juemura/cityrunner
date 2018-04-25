@@ -105,19 +105,19 @@ var StateMain = {
     makeBlocks: function() {
         this.blocks.removeAll();
         var wallHeight = game.rnd.integerInRange(1, 1);
-        var trashCanX = game.rnd.integerInRange(0, game.width - 100);
+        var trashCanX = game.rnd.integerInRange(0, game.width + 100);
         for (var i = 0; i < wallHeight; i++) {
             
 //        var block = game.add.sprite(trashCanX, -i * 50, "fire");
         //make animations
 //        block.animations.add("burn", this.makeArray(0, 5), 12, true);
 //        block.animations.play("burn");
-            var block = game.add.sprite(trashCanX, -i * 50, "trashcan");
+            var block = game.add.sprite(trashCanX, this.ground.y - 50, "trashcan");
             this.blocks.add(block);
             }
         
-        this.blocks.x = game.width - this.blocks.width
-        this.blocks.y = this.ground.y - 50;
+//        this.blocks.x = game.width - this.blocks.width
+//        this.blocks.y = this.ground.y - 50;
         console.log(this.blocks)
         //
         //Loop through each block
