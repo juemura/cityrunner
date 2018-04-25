@@ -136,7 +136,7 @@ var StateMain = {
         }
         //pick a number at the top of the screen
         //between 10 percent and 40 percent of the height of the screen
-        var birdY = game.rnd.integerInRange(game.height * 0.5, game.height * 0.65);
+        var birdY = game.rnd.integerInRange(game.height * 0.55, game.height * 0.6);
         //add the bird sprite to the game
         this.bird = game.add.sprite(game.width + 100, birdY, "bird");
         //enable the sprite for physics
