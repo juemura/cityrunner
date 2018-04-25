@@ -4,11 +4,12 @@ var StateMain = {
         // game.load.image("hero", "images/hero.png");
         game.load.image("bar", "images/powerbar.png");
         game.load.image("block", "images/block.png");
-        game.load.image("trashcan", "images/trashcan.png");
+        game.load.image("trashcan", "images/trashcan3.png");
         game.load.image("bird", "images/bird.png");
         game.load.image("playAgain", "images/playAgain.png");
         game.load.image("clouds", "images/clouds.png");
         game.load.atlasJSONHash('hero', 'images/explorer.png', 'images/explorer.json');
+        game.load.atlasJSONHash('fire', 'images/fire.png', 'images/fire.json');
     },
     create: function() {
         this.clickLock = false;
@@ -24,7 +25,7 @@ var StateMain = {
         //make animations
 //        this.hero.animations.add("die", this.makeArray(0, 10), 12, false);
 //        this.hero.animations.add("jump", this.makeArray(20, 30), 12, false);
-        this.hero.animations.add("run", this.makeArray(0, 0), 12, true);
+        this.hero.animations.add("run", this.makeArray(0, 7), 12, true);
         this.hero.animations.play("run");
         this.hero.width = game.width / 12;
         this.hero.scale.y = this.hero.scale.x;
@@ -106,11 +107,18 @@ var StateMain = {
         var wallHeight = game.rnd.integerInRange(1, 1);
         var trashCanX = game.rnd.integerInRange(0, game.width - 100);
         for (var i = 0; i < wallHeight; i++) {
+            
+//        var block = game.add.sprite(trashCanX, -i * 50, "fire");
+        //make animations
+//        block.animations.add("burn", this.makeArray(0, 5), 12, true);
+//        block.animations.play("burn");
             var block = game.add.sprite(trashCanX, -i * 50, "trashcan");
             this.blocks.add(block);
-        }
+            }
+        
         this.blocks.x = game.width - this.blocks.width
         this.blocks.y = this.ground.y - 50;
+        console.log(this.blocks)
         //
         //Loop through each block
         //and apply physics
@@ -139,6 +147,7 @@ var StateMain = {
         var birdY = game.rnd.integerInRange(game.height * 0.55, game.height * 0.6);
         //add the bird sprite to the game
         this.bird = game.add.sprite(game.width + 100, birdY, "bird");
+        console.log(this.bird.width, this.bird.height);
         //enable the sprite for physics
         game.physics.enable(this.bird, Phaser.Physics.ARCADE);
         //set the x velocity at -200 which is a little faster than the blocks
