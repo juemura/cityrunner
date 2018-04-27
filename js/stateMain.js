@@ -151,7 +151,7 @@ var StateMain = {
         //enable the sprite for physics
         game.physics.enable(this.bird, Phaser.Physics.ARCADE);
         //set the x velocity at -200 which is a little faster than the blocks
-        this.bird.body.velocity.x = -300;
+        this.bird.body.velocity.x = -350;
         //set the bounce for the bird
         this.bird.body.bounce.set(2, 2);
     },
