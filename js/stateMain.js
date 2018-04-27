@@ -105,7 +105,7 @@ var StateMain = {
     makeBlocks: function() {
         this.blocks.removeAll();
         var wallHeight = game.rnd.integerInRange(1, 1);
-        var trashCanX = game.rnd.integerInRange(0, game.width + 100);
+        var trashCanX = game.rnd.integerInRange(400, game.width + 100);
         for (var i = 0; i < wallHeight; i++) {
             
 //        var block = game.add.sprite(trashCanX, -i * 50, "fire");
@@ -144,7 +144,7 @@ var StateMain = {
         }
         //pick a number at the top of the screen
         //between 10 percent and 40 percent of the height of the screen
-        var birdY = game.rnd.integerInRange(game.height * 0.4, game.height * 0.35);
+        var birdY = game.rnd.integerInRange(game.height * 0.5, game.height * 0.45);
         //add the bird sprite to the game
         this.bird = game.add.sprite(game.width + 100, birdY, "bird");
         console.log(this.bird.width, this.bird.height);
