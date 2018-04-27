@@ -101,7 +101,7 @@ var StateMain = {
     },
     doJump: function() {
     if (this.hero.y >= 432) 
-    {this.hero.body.velocity.y = -350;}},
+    {this.hero.body.velocity.y = -300;}},
     makeBlocks: function() {
         this.blocks.removeAll();
         var wallHeight = game.rnd.integerInRange(1, 1);
@@ -126,7 +126,7 @@ var StateMain = {
             //enable physics
             game.physics.enable(block, Phaser.Physics.ARCADE);
             //set the x velocity to -160
-            block.body.velocity.x = -150;
+            block.body.velocity.x = -300;
             //apply some gravity to the block
             //not too much or the blocks will bounce
             //against each other
@@ -144,14 +144,14 @@ var StateMain = {
         }
         //pick a number at the top of the screen
         //between 10 percent and 40 percent of the height of the screen
-        var birdY = game.rnd.integerInRange(game.height * 0.55, game.height * 0.6);
+        var birdY = game.rnd.integerInRange(game.height * 0.4, game.height * 0.35);
         //add the bird sprite to the game
         this.bird = game.add.sprite(game.width + 100, birdY, "bird");
         console.log(this.bird.width, this.bird.height);
         //enable the sprite for physics
         game.physics.enable(this.bird, Phaser.Physics.ARCADE);
         //set the x velocity at -200 which is a little faster than the blocks
-        this.bird.body.velocity.x = -200;
+        this.bird.body.velocity.x = -300;
         //set the bounce for the bird
         this.bird.body.bounce.set(2, 2);
     },
@@ -193,7 +193,7 @@ var StateMain = {
             this.makeBird();
         }
         if (this.hero.y < this.hero.height) {
-            this.hero.body.velocity.y = 200;
+            this.hero.body.velocity.y = 300;
             this.delayOver();
         }
     },
