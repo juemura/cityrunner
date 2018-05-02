@@ -208,5 +208,6 @@ var StateMain = {
     gameOver: function() {
         localStorage.setItem("score", this.score);
         game.state.start("StateOver");
+        
     }
 }
