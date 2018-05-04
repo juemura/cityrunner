@@ -1,3 +1,4 @@
+var backgroundTileSprite;
 var StateMain = {
     preload: function() {
         game.load.image("ground", "images/ground.png");
@@ -8,6 +9,7 @@ var StateMain = {
         game.load.image("bird", "images/bird.png");
         game.load.image("playAgain", "images/playAgain.png");
         game.load.image("clouds", "images/clouds.png");
+        game.load.image("background","images/background.png")
         game.load.atlasJSONHash('hero', 'images/explorer.png', 'images/explorer.json');
         game.load.atlasJSONHash('fire', 'images/fire.png', 'images/fire.json');
     },
@@ -15,9 +17,9 @@ var StateMain = {
         this.clickLock = false;
         this.power = 0;
         this.score = 0;
+        backgroundTileSprite = game.add.tileSprite(0, 35, 790, 395, "background");
         this.scoreText = game.add.text(50, 50, "TEST TEXT" + this.score);
-        //turn the background sky blue
-        game.stage.backgroundColor = "#00ffff";
+        this.scoreText.addColor('#ff0000', 0);
         //add the ground
         this.ground = game.add.sprite(0, game.height * .9, "ground");
         //add the hero in 
@@ -161,6 +163,7 @@ var StateMain = {
         }
     },
     update: function() {
+        backgroundTileSprite.tilePosition.x -= 1;
         this.score += 1;
         this.scoreText.text = this.score
         game.physics.arcade.collide(this.hero, this.ground, this.onGround, null, this);
