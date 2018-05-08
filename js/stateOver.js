@@ -9,7 +9,7 @@ var StateOver={
             game.add.text(
               0, 0,  // x, y position
               "Score.: " + score,
-              { fontSize: "32px", fill: "#000" }
+              { fontSize: "32px", fill: "#fff" }
             );
         }
         
