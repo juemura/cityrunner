@@ -8,7 +8,7 @@ var StateOver={
             score = parseInt(localStorage.getItem("score"));
             game.add.text(
               0, 0,  // x, y position
-              "Score.: " + score,
+              "Score: " + score,
               { fontSize: "32px", fill: "#fff" }
             );
         }
